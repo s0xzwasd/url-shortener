@@ -1,25 +1,36 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: circleci/node:10
+    steps:
+      - checkout
 
-    working_directory: ~/repo
-steps:
-  - checkout
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
 
-  - restore_cache:
-    keys:
-      - v1-dependencies-{{ checksum "package.json" }}
-      - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: yarn install
 
-  - run: yarn install
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - "node_modules"
 
-  - save_cache:
-    paths:
-      - node_modules
-    key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run tests
+          command: yarn test
 
-  - run: yarn lint
+      - store_artifacts:
+          path: test-results
 
-  - run: yarn test
+      - store_test_results:
+          path: test-results
+
+workflows:
+  version: 2
+  Build and Test:
+    jobs:
+      - build
