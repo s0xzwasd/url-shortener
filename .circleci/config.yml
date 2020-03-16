@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: circleci/node:10
     steps:
@@ -23,18 +23,16 @@ jobs:
           name: Run tests
           command: yarn test
 
-      - store_artifacts:
-          path: test-results
-
-      - store_test_results:
-          path: test-results
-
       - run:
           name: Run linter
           command: yarn lint
+
+      - run:
+          name: Build project
+          command: yarn build
 
 workflows:
   version: 2
   Build and Test:
     jobs:
-      - build
+      - build-and-test
