@@ -4,7 +4,7 @@
 
 Using the service, you can shorten a long link (snakes will not pass 🐍). Two service APIs are used: rel.ink and cleanuri.
 
-[Try It Out!](https://github.com/)
+[Try It Out!](https://url-shortener-react.herokuapp.com/)
 
 [Trello Project Board](https://trello.com/c/v3MDp1pK)
 
