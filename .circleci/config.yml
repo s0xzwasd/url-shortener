@@ -30,8 +30,8 @@ jobs:
           path: test-results
 
       - run:
-        name: Run linter
-        command: yarn lint
+          name: Run linter
+          command: yarn lint
 
 workflows:
   version: 2
