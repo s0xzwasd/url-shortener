@@ -29,6 +29,10 @@ jobs:
       - store_test_results:
           path: test-results
 
+      - run:
+        name: Run linter
+        command: yarn lint
+
 workflows:
   version: 2
   Build and Test:
