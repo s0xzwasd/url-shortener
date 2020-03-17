@@ -1,38 +1,47 @@
-import React, { Component } from "react";
-
-import { connect } from "react-redux";
-import simpleAction from "./actions/simpleAction";
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
 
 import logo from "./logo.svg";
-import "./App.css";
 
-class App extends Component {
-  // eslint-disable-next-line no-shadow
-  simpleAction = ({ simpleAction }) => {
-    simpleAction();
-  };
-
-  render() {
-    return (
-      <div className='App'>
-        <header className='App-header'>
-          <button type='button' onClick={this.simpleAction}>
-            Test redux action
-          </button>
-          <img src={logo} className='App-logo' alt='logo' />
-          <pre>{JSON.stringify(this.props)}</pre>
-        </header>
-      </div>
-    );
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
+`;
 
-const mapStateToProps = state => ({
-  ...state
-});
+const StyledApp = styled.div`
+  text-align: center;
+`;
 
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-});
+const StyledHeader = styled.header`
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+`;
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+const StyledLogo = styled.img`
+  height: 40vmin;
+  pointer-events: none;
+`;
+
+const App = () => (
+  <>
+    <GlobalStyle />
+    <StyledApp>
+      <StyledHeader>
+        <StyledLogo src={logo} alt='logo' />
+      </StyledHeader>
+    </StyledApp>
+  </>
+);
+
+export default App;
