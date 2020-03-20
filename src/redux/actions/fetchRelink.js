@@ -1,6 +1,6 @@
-import { FETCH_LINK } from "../types";
+import { FETCH_RELINK } from "../types";
 
-export default function fetchLink(url) {
+export default function fetchRelink(url) {
   return async dispatch => {
     const response = await fetch("https://rel.ink/api/links/", {
       method: "POST",
@@ -12,6 +12,6 @@ export default function fetchLink(url) {
       }
     });
     const json = await response.json();
-    dispatch({ type: FETCH_LINK, payload: json });
+    dispatch({ type: FETCH_RELINK, payload: json });
   };
 }
