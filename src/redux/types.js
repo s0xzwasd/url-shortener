@@ -1,2 +1,2 @@
-export const FETCH_LINK = "POST/FETCH_LINK";
-export const FETCH_USER = "POST/FETCH_USER";
+export const FETCH_RELINK = "POST/FETCH_RELINK";
+export const FETCH_CLEANURI = "POST/FETCH_CLEANURI";
