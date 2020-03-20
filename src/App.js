@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
-import logo from "./logo.svg";
+import Button from "./components/Button";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,17 +28,12 @@ const StyledHeader = styled.header`
   color: white;
 `;
 
-const StyledLogo = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-`;
-
 const App = () => (
   <>
     <GlobalStyle />
     <StyledApp>
       <StyledHeader>
-        <StyledLogo src={logo} alt='logo' />
+        <Button />
       </StyledHeader>
     </StyledApp>
   </>
