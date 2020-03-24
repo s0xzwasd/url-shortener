@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
-import relinkReducer from "./relinkReducer";
-import cleanuriReducer from "./cleanuriReducer";
+import linkReducer from "./linkReducer";
 
 const rootReducer = combineReducers({
-  relink: relinkReducer,
-  cleanuri: cleanuriReducer
+  link: linkReducer
 });
 
 export default rootReducer;

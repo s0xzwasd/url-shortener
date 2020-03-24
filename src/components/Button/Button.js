@@ -1,51 +1,50 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect, useDispatch } from "react-redux";
 
-import fetchRelink from "../../redux/actions/fetchRelink";
-import fetchCleanuri from "../../redux/actions/fetchCleanuri";
+import fetchLink from "../../redux/actions/fetchLink";
 
-const Button = ({ relink, cleanuri }) => {
+const Button = ({ link }) => {
   const dispatch = useDispatch();
 
   return (
     <>
       <div>
         <h2>Relink</h2>
-        <button type='button' onClick={() => dispatch(fetchRelink("https://stackoverflow.com/"))}>
+        <button type='button' onClick={() => dispatch(fetchLink("https://stackoverflow.com/"))}>
           Button relink
         </button>
-        {relink && (
+        {link && (
           <div>
-            <p>{`https://rel.ink/${relink.hashid}`}</p>
-            <p>{relink.url}</p>
-            <p>{relink.created_at}</p>
+            <p>{`https://rel.ink/${link.hashid}`}</p>
+            <p>{link.url}</p>
+            <p>{link.created_at}</p>
           </div>
         )}
-      </div>
-      <div>
-        <h2>Cleanuri</h2>
-        <button
-          type='button'
-          onClick={() =>
-            dispatch(
-              fetchCleanuri(
-                "https://trello.com/c/LaayVfDs/7-us-7-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB-%D0%B4%D0%BB%D1%8F-cleanuri"
-              )
-            )
-          }
-        >
-          Button cleanuri
-        </button>
-        {cleanuri && <p>{cleanuri.result_url}</p>}
       </div>
     </>
   );
 };
 
+Button.propTypes = {
+  link: PropTypes.shape({
+    hashid: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string
+  })
+};
+
+Button.defaultProps = {
+  link: {
+    hashid: "",
+    url: "",
+    created_at: ""
+  }
+};
+
 const mapStateToProps = state => {
   return {
-    relink: state.relink.link,
-    cleanuri: state.cleanuri.link
+    link: state.link.link
   };
 };
 
