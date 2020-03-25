@@ -1,13 +1,15 @@
-import { FETCH_CLEANURI } from "../types";
+import { FETCH_INPUT } from "../types";
 
-const initialState = {};
+const initialState = {
+  value: ""
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_CLEANURI:
+    case FETCH_INPUT:
       return {
         ...state,
-        link: action.payload
+        value: action.payload
       };
     default:
       return state;

@@ -2,6 +2,7 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 import Button from "./components/Button";
+import Input from "./components/Input";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -34,6 +35,7 @@ const App = () => (
     <StyledApp>
       <StyledHeader>
         <Button />
+        <Input />
       </StyledHeader>
     </StyledApp>
   </>
