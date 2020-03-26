@@ -7,6 +7,9 @@ const StyledHeader = styled.h1`
   color: #d8dad3;
   font-size: 48px;
   font-weight: 400;
+  @media (max-width: 420px) {
+    font-size: 36px;
+  }
 `;
 
 const HeaderTitle = ({ children }) => {

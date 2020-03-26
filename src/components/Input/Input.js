@@ -6,8 +6,12 @@ import { connect } from "react-redux";
 import fetchInput from "../../redux/actions/fetchInput";
 
 const StyledInput = styled.input`
+  font-family: inherit;
+  font-size: 14px;
+  width: calc(80% - 125px);
   color: #000000;
   padding: 5px 15px;
+  border: none;
   border-radius: 0;
 `;
 
