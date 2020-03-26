@@ -1,51 +1,47 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect, useDispatch } from "react-redux";
+import styled from "styled-components";
+import { connect } from "react-redux";
 
 import fetchLink from "../../redux/actions/fetchLink";
 
-const Button = ({ link }) => {
-  const dispatch = useDispatch();
+const StyledButton = styled.button`
+  cursor: pointer;
+  padding: 5px 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #d8dad3;
+  background-color: #56666b;
+  border: none;
+`;
 
+const Button = ({ children, fetchData }) => {
   return (
-    <>
-      <div>
-        <h2>Relink</h2>
-        <button type='button' onClick={() => dispatch(fetchLink("https://stackoverflow.com/"))}>
-          Button relink
-        </button>
-        {link && (
-          <div>
-            <p>{`https://rel.ink/${link.hashid}`}</p>
-            <p>{link.url}</p>
-            <p>{link.created_at}</p>
-          </div>
-        )}
-      </div>
-    </>
+    <StyledButton type='button' onClick={() => fetchData("https://stackoverflow.com/")}>
+      {children}
+    </StyledButton>
   );
 };
 
 Button.propTypes = {
-  link: PropTypes.shape({
-    hashid: PropTypes.string,
-    url: PropTypes.string,
-    created_at: PropTypes.string
-  })
+  children: PropTypes.node.isRequired,
+  fetchData: PropTypes.func
 };
 
 Button.defaultProps = {
-  link: {
-    hashid: "",
-    url: "",
-    created_at: ""
-  }
+  fetchData: () => {}
 };
 
 const mapStateToProps = state => {
   return {
-    link: state.link.link
+    link: state.link.data
   };
 };
 
-export default connect(mapStateToProps)(Button);
+const mapDispatchToProps = {
+  fetchData: fetchLink
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

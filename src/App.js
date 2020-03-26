@@ -7,19 +7,12 @@ import Input from "./components/Input";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
 `;
 
 const StyledApp = styled.div`
-  text-align: center;
-`;
-
-const StyledHeader = styled.header`
-  background-color: #282c34;
+  background-color: #1c1d21;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,16 +20,15 @@ const StyledHeader = styled.header`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
 `;
 
 const App = () => (
   <>
     <GlobalStyle />
     <StyledApp>
-      <StyledHeader>
-        <Button />
-        <Input />
-      </StyledHeader>
+      <Button>Short link!</Button>
+      <Input />
     </StyledApp>
   </>
 );
