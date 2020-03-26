@@ -12,31 +12,36 @@ const StyledButton = styled.button`
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-  color: #d8dad3;
-  background-color: #56666b;
+  color: ${props => (props.isLoading ? "#c4c4c4" : "#d8dad3")};
+  background-color: ${props => (props.isLoading ? "#c4c4c4" : "#56666b")};
   border: none;
 `;
 
-const Button = ({ children, fetchData }) => {
+const Button = ({ isLoading, children, fetchData, value }) => {
   return (
-    <StyledButton type='button' onClick={() => fetchData("https://stackoverflow.com/")}>
+    <StyledButton isLoading={isLoading} type='button' onClick={() => fetchData(value)}>
       {children}
     </StyledButton>
   );
 };
 
 Button.propTypes = {
+  isLoading: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  fetchData: PropTypes.func
+  fetchData: PropTypes.func,
+  value: PropTypes.string
 };
 
 Button.defaultProps = {
-  fetchData: () => {}
+  isLoading: false,
+  fetchData: () => {},
+  value: ""
 };
 
 const mapStateToProps = state => {
   return {
-    link: state.link.data
+    value: state.value.value,
+    isLoading: state.app.loading
   };
 };
 
