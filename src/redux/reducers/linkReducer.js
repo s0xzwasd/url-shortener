@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     case FETCH_LINK:
       return {
         ...state,
-        link: action.payload
+        data: action.payload
       };
     default:
       return state;
