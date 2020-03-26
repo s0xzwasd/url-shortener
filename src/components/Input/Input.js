@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -33,6 +34,10 @@ class Input extends Component {
     return <StyledInput autoFocus value={value} onChange={this.handleChange} />;
   }
 }
+
+Input.propTypes = {
+  fetchData: PropTypes.func.isRequired
+};
 
 const mapDispatchToProps = {
   fetchData: fetchInput
