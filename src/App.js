@@ -4,9 +4,11 @@ import styled, { createGlobalStyle } from "styled-components";
 import HeaderTitle from "./components/HeaderTitle";
 import Button from "./components/Button";
 import Input from "./components/Input";
+import Wrapper from "./components/Wrapper";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    min-width: 320px;
     margin: 0;
     font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
@@ -22,6 +24,9 @@ const StyledApp = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
   text-align: center;
+  @media (max-width: 420px) {
+    padding: 0 20px;
+  }
 `;
 
 const App = () => (
@@ -34,8 +39,10 @@ const App = () => (
           😎
         </span>
       </HeaderTitle>
-      <Button>Short link!</Button>
-      <Input />
+      <Wrapper>
+        <Input />
+        <Button>Short link!</Button>
+      </Wrapper>
     </StyledApp>
   </>
 );
