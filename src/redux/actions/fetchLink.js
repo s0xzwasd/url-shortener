@@ -1,5 +1,6 @@
 import { FETCH_LINK } from "../types";
 import { showLoader, hideLoader, showShortLink } from "./app";
+import fetchInput from "./fetchInput";
 
 const apiUrl = "https://rel.ink/api/links/";
 
@@ -19,5 +20,6 @@ export default function fetchLink(url) {
     dispatch({ type: FETCH_LINK, payload: json });
     dispatch(hideLoader());
     dispatch(showShortLink());
+    dispatch(fetchInput(""));
   };
 }
