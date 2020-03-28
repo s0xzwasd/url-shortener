@@ -17,25 +17,18 @@ const StyledButton = styled.button`
   border: none;
 `;
 
-const Button = ({ isLoading, children, fetchData, value }) => {
+const Button = ({ isLoading, children, onClick }) => {
   return (
-    <StyledButton isLoading={isLoading} type='button' onClick={() => fetchData(value)}>
+    <StyledButton isLoading={isLoading} type='button' onClick={onClick}>
       {children}
     </StyledButton>
   );
 };
 
 Button.propTypes = {
-  isLoading: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  fetchData: PropTypes.func,
-  value: PropTypes.string
-};
-
-Button.defaultProps = {
-  isLoading: false,
-  fetchData: () => {},
-  value: ""
+  onClick: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 const mapStateToProps = state => {

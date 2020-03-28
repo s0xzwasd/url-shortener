@@ -34,10 +34,10 @@ class Input extends Component {
   };
 
   render() {
-    const { isLoading, link } = this.props;
+    const { isLoading, link, isLinkShortened } = this.props;
     const { value } = this.state;
 
-    if (link) {
+    if (link && isLinkShortened) {
       return <StyledInput isLoading={isLoading} autoFocus value={`https://rel.ink/${link.hashid}`} readOnly />;
     }
 
@@ -47,18 +47,16 @@ class Input extends Component {
 
 Input.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  link: PropTypes.node,
+  link: PropTypes.node.isRequired,
+  isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired
-};
-
-Input.defaultProps = {
-  link: ""
 };
 
 const mapStateToProps = state => {
   return {
     link: state.link.data,
-    isLoading: state.app.loading
+    isLoading: state.app.loading,
+    isLinkShortened: state.app.linkVisisble
   };
 };
 
