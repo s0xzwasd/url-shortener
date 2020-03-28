@@ -28,6 +28,7 @@ const StyledApp = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
   text-align: center;
+
   @media (max-width: 420px) {
     padding: 0 20px;
   }
