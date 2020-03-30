@@ -40,7 +40,6 @@ const StyledWrapper = styled.div`
   margin-left: 10px;
 `;
 
-// TODO: add props validation
 const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink }) => {
   const renderEmoji = () => {
     if (isLinkShortened && !isLoading) {
