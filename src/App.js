@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 import { connect } from "react-redux";
 
@@ -34,8 +35,12 @@ const StyledApp = styled.div`
   }
 `;
 
-// TODO: add props validation
-const App = ({ inputValue, isLoading, isLinkShortened, fetchLink, hideShortLink }) => {
+const StyledWrapper = styled.div`
+  display: inline-block;
+  margin-left: 10px;
+`;
+
+const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink }) => {
   const renderEmoji = () => {
     if (isLinkShortened && !isLoading) {
       return "🎉";
@@ -59,17 +64,27 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchLink, hideShortLink 
         <Wrapper>
           <Input />
           {!isLinkShortened ? (
-            <Button onClick={() => fetchLink(inputValue)}>Short link!</Button>
+            <Button onClick={() => fetchData(inputValue)}>Short link!</Button>
           ) : (
             <>
               <Button>Copy</Button>
-              <Button onClick={() => hideShortLink()}>New</Button>
+              <StyledWrapper>
+                <Button onClick={() => hideLink()}>New</Button>
+              </StyledWrapper>
             </>
           )}
         </Wrapper>
       </StyledApp>
     </>
   );
+};
+
+App.propTypes = {
+  inputValue: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isLinkShortened: PropTypes.bool.isRequired,
+  fetchData: PropTypes.func.isRequired,
+  hideLink: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -81,8 +96,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchLink,
-  hideShortLink
+  fetchData: fetchLink,
+  hideLink: hideShortLink
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

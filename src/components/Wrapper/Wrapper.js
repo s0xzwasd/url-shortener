@@ -3,7 +3,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const StyledWrapper = styled.section`
-  padding: 15px 20px;
+  min-width: 510px;
+  padding: 15px 10px;
   background-color: #d8dad3;
   border-radius: 5px;
 `;

@@ -8,7 +8,7 @@ import fetchInput from "../../redux/actions/fetchInput";
 const StyledInput = styled.input`
   font-family: inherit;
   font-size: 14px;
-  width: calc(80% - 125px);
+  width: calc(80% - 100px);
   color: ${props => (props.isLoading ? "#c4c4c4" : "#000000")};
   padding: 5px 15px;
   border: none;
@@ -37,8 +37,10 @@ class Input extends Component {
     const { isLoading, link, isLinkShortened } = this.props;
     const { value } = this.state;
 
+    const apiLink = "https://rel.ink/";
+
     if (link && isLinkShortened) {
-      return <StyledInput isLoading={isLoading} autoFocus value={`https://rel.ink/${link.hashid}`} readOnly />;
+      return <StyledInput isLoading={isLoading} autoFocus value={`${apiLink}${link.hashid}`} readOnly />;
     }
 
     return <StyledInput isLoading={isLoading} autoFocus value={value} onChange={this.handleChange} />;
