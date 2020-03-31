@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 import { connect } from "react-redux";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import HeaderTitle from "./components/HeaderTitle";
 import Button from "./components/Button";
@@ -40,7 +41,7 @@ const StyledWrapper = styled.div`
   margin-left: 10px;
 `;
 
-const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink }) => {
+const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link }) => {
   const renderEmoji = () => {
     if (isLinkShortened && !isLoading) {
       return "🎉";
@@ -50,6 +51,8 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink }) =>
     }
     return "😴";
   };
+
+  const apiLink = "https://rel.ink/";
 
   return (
     <>
@@ -67,7 +70,9 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink }) =>
             <Button onClick={() => fetchData(inputValue)}>Short link!</Button>
           ) : (
             <>
-              <Button>Copy</Button>
+              <CopyToClipboard text={`${apiLink}${link.hashid}`}>
+                <Button>Copy</Button>
+              </CopyToClipboard>
               <StyledWrapper>
                 <Button onClick={() => hideLink()}>New</Button>
               </StyledWrapper>
@@ -84,11 +89,13 @@ App.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired,
-  hideLink: PropTypes.func.isRequired
+  hideLink: PropTypes.func.isRequired,
+  link: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => {
   return {
+    link: state.link.data,
     inputValue: state.value.value,
     isLoading: state.app.loading,
     isLinkShortened: state.app.linkVisisble
