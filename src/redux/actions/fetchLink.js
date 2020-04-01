@@ -7,10 +7,19 @@ const apiUrl = "https://rel.ink/api/links/";
 export default function fetchLink(url) {
   return async dispatch => {
     dispatch(showLoader());
+
+    let currentUrl = url;
+
+    const matchUrlRegExp = /^(http[s]:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
+    if (!currentUrl.match(matchUrlRegExp)) {
+      currentUrl =  `https://${currentUrl}`;
+    }
+
     const response = await fetch(apiUrl, {
       method: "POST",
       body: JSON.stringify({
-        url
+        url: currentUrl
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
