@@ -13,6 +13,19 @@ import fetchLink from "./redux/actions/fetchLink";
 import { hideShortLink } from "./redux/actions/app";
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --c-primary: #d8dad3;
+    --c-secondary: #56666b;
+    --c-accent: #1c1d21;
+    --c-loader: #c4c4c4;
+    --c-text-on-white: #000000;
+    --c-text: #ffffff;
+
+    --font-size-small: 14px;
+    --font-size-medium: 36px;
+    --font-size-large: 48px;
+  }
+
   body {
     min-width: 320px;
     margin: 0;
@@ -21,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledApp = styled.div`
-  background-color: #1c1d21;
+  background-color: var(--c-accent);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

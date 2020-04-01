@@ -9,11 +9,11 @@ const StyledButton = styled.button`
   cursor: pointer;
   padding: 5px 20px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   font-weight: 500;
   text-transform: uppercase;
-  color: ${props => (props.isLoading ? "#c4c4c4" : "#d8dad3")};
-  background-color: ${props => (props.isLoading ? "#c4c4c4" : "#56666b")};
+  color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-primary)")};
+  background-color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-secondary)")};
   border: none;
 `;
 

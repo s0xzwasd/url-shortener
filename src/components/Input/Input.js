@@ -7,13 +7,13 @@ import fetchInput from "../../redux/actions/fetchInput";
 
 const StyledInput = styled.input`
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   width: calc(80% - 100px);
-  color: ${props => (props.isLoading ? "#c4c4c4" : "#000000")};
+  color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text-on-white)")};
   padding: 5px 15px;
   border: none;
   border-radius: 0;
-  background-color: ${props => (props.isLoading ? "#c4c4c4" : "#ffffff")};
+  background-color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
 `;
 
 class Input extends Component {
