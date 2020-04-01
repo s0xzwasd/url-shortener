@@ -10,7 +10,7 @@ export default function fetchLink(url) {
 
     let currentUrl = url;
 
-    const matchUrlRegExp = /^(http[s]:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    const matchUrlRegExp = /^(http[s]:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
 
     if (!currentUrl.match(matchUrlRegExp)) {
       currentUrl =  `https://${currentUrl}`;
