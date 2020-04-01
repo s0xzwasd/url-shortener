@@ -10,13 +10,13 @@ Using the service, you can shorten a long link (snakes will not pass 🐍). Two 
 
 ## Application functionality
 
-- [ ] User can choose one of two services.
-- [ ] User can copy the shortened link.
-- [ ] User can make a new link.
+- [x] User can insert a long link and short it!
+- [x] User can copy the shortened link.
+- [x] User can make a new link.
 
 ### Additional functionality
 
-- [ ] User can copy the shortened link.
+- [ ] User sees a successful notification of the creation and copying of the link.
 - [ ] User sees the last 10 links created (localStorage).
 
 ### Used technologies and libraries
