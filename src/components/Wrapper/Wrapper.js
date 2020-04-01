@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const StyledWrapper = styled.section`
   min-width: 510px;
   padding: 15px 10px;
-  background-color: #d8dad3;
+  background-color: var(--c-primary);
   border-radius: 5px;
 `;
 

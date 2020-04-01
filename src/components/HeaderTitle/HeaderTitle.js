@@ -4,11 +4,12 @@ import styled from "styled-components";
 
 const StyledHeader = styled.h1`
   text-transform: uppercase;
-  color: #d8dad3;
-  font-size: 48px;
+  color: var(--c-primary);
+  font-size: var(--font-size-large);
   font-weight: 400;
+
   @media (max-width: 420px) {
-    font-size: 36px;
+    font-size: var(--font-size-medium);
   }
 `;
 
