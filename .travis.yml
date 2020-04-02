@@ -1,0 +1,18 @@
+os: linux
+language: node_js
+node_js:
+  - 'stable'
+cache:
+  directories:
+    - node_modules
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: url-shortener.surge.sh
+  project: /build
+on:
+  branch: master
