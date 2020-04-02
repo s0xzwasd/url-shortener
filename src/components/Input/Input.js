@@ -17,25 +17,14 @@ const StyledInput = styled.input`
 `;
 
 class Input extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: ""
-    };
-  }
-
   handleChange = e => {
     const { fetchData } = this.props;
-
-    this.setState({ value: e.target.value });
 
     fetchData(e.target.value);
   };
 
   render() {
-    const { isLoading, link, isLinkShortened } = this.props;
-    const { value } = this.state;
+    const { value, isLoading, link, isLinkShortened } = this.props;
 
     const apiLink = "https://rel.ink/";
 
@@ -48,6 +37,7 @@ class Input extends Component {
 }
 
 Input.propTypes = {
+  value: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
   link: PropTypes.node.isRequired,
   isLinkShortened: PropTypes.bool.isRequired,
@@ -56,6 +46,7 @@ Input.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    value: state.value.value,
     link: state.link.data,
     isLoading: state.app.loading,
     isLinkShortened: state.app.linkVisisble
