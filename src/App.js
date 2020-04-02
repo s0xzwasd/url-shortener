@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 import { connect } from "react-redux";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { toast } from "react-toastify";
 
 import HeaderTitle from "./components/HeaderTitle";
 import Button from "./components/Button";
@@ -31,6 +32,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
+
+  .success-toast {
+    min-height: 40px;
+    background-color: var(--c-secondary);
+    border-radius: 2px;
+  }
 `;
 
 const StyledApp = styled.div`
@@ -55,6 +62,8 @@ const StyledWrapper = styled.div`
 `;
 
 const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link }) => {
+  const apiLink = "https://rel.ink/";
+
   const renderEmoji = () => {
     if (isLinkShortened && !isLoading) {
       return "🎉";
@@ -64,8 +73,6 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link
     }
     return "😴";
   };
-
-  const apiLink = "https://rel.ink/";
 
   return (
     <>
@@ -84,7 +91,7 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link
           ) : (
             <>
               <CopyToClipboard text={`${apiLink}${link.hashid}`}>
-                <Button>Copy</Button>
+                <Button onClick={() => toast.success("Copied!", { className: "success-toast" })}>Copy</Button>
               </CopyToClipboard>
               <StyledWrapper>
                 <Button onClick={() => hideLink()}>New</Button>
