@@ -1,10 +1,10 @@
-# url-shortener
+# url-shortener [![Build Status](https://travis-ci.com/s0xzwasd/url-shortener.svg?branch=master)](https://travis-ci.com/s0xzwasd/url-shortener)
 
 ![border-radius project in browser looks like](https://i.imgur.com/2ptflPG.png)
 
 Using the service, you can shorten a long link (snakes will not pass 🐍). Two service APIs are used: rel.ink and cleanuri.
 
-[Try It Out!](https://url-shortener-react.herokuapp.com/)
+[Try It Out!](https://url-shortener.surge.sh/)
 
 [Trello Project Board](https://trello.com/c/v3MDp1pK)
 
