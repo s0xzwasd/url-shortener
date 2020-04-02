@@ -1,4 +1,4 @@
-# url-shortener [![Build Status](https://travis-ci.com/s0xzwasd/url-shortener.svg?branch=master)](https://travis-ci.com/s0xzwasd/url-shortener)
+# url-shortener [![Build Status](https://travis-ci.com/s0xzwasd/url-shortener.svg?branch=master)](https://travis-ci.com/s0xzwasd/url-shortener) ![GitHub](https://img.shields.io/github/license/s0xzwasd/url-shortener) ![GitHub repo size](https://img.shields.io/github/repo-size/s0xzwasd/url-shortener)
 
 ![border-radius project in browser looks like](https://i.imgur.com/2ptflPG.png)
 
