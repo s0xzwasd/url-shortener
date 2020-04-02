@@ -12,7 +12,7 @@ script:
 deploy:
   provider: surge
   skip_cleanup: true
-  domain: url-shortener.surge.sh
+  domain: https://url-shortener.surge.sh
   project: /build
 on:
   branch: master
