@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { FETCH_LINK } from "../types";
 import { showLoader, hideLoader, showShortLink } from "./app";
 import fetchInput from "./fetchInput";
+import collectLink from "./collectLink";
 
 const apiUrl = "https://rel.ink/api/links/";
 
@@ -42,6 +43,7 @@ export default function fetchLink(url) {
     dispatch({ type: FETCH_LINK, payload: json });
     dispatch(hideLoader());
     dispatch(showShortLink());
+    dispatch(collectLink(`https://rel.ink/${json.hashid}`));
     dispatch(fetchInput(""));
 
     return toast.success("Link successfully shortened!", { className: "success-toast" });

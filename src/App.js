@@ -9,6 +9,7 @@ import HeaderTitle from "./components/HeaderTitle";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import Wrapper from "./components/Wrapper";
+import Items from "./components/Items";
 
 import fetchLink from "./redux/actions/fetchLink";
 import { hideShortLink } from "./redux/actions/app";
@@ -99,6 +100,7 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link
             </>
           )}
         </Wrapper>
+        <Items />
       </StyledApp>
     </>
   );
