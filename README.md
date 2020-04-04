@@ -1,8 +1,8 @@
 # url-shortener [![Build Status](https://travis-ci.com/s0xzwasd/url-shortener.svg?branch=master)](https://travis-ci.com/s0xzwasd/url-shortener) ![GitHub](https://img.shields.io/github/license/s0xzwasd/url-shortener) ![GitHub repo size](https://img.shields.io/github/repo-size/s0xzwasd/url-shortener)
 
-![border-radius project in browser looks like](https://i.imgur.com/2ptflPG.png)
+![url-shortener project in browser looks like](https://i.imgur.com/csQbd7a.png)
 
-Using the service, you can shorten a long link (snakes will not pass 🐍). Two service APIs are used: rel.ink and cleanuri.
+Using the service, you can shorten a long link (snakes will not pass 🐍). Service API are used rel.ink.
 
 [Try It Out!](https://url-shortener.surge.sh/)
 
@@ -17,7 +17,7 @@ Using the service, you can shorten a long link (snakes will not pass 🐍). Two 
 ### Additional functionality
 
 - [x] User sees a successful notification of the creation and copying of the link.
-- [ ] User sees the last 10 links created (localStorage).
+- [x] User sees the last 10 links created (localStorage).
 
 ### Used technologies and libraries
 
