@@ -2,7 +2,7 @@
 
 ![url-shortener project in browser looks like](https://i.imgur.com/csQbd7a.png)
 
-Using the service, you can shorten a long link (snakes will not pass 🐍). Two service APIs are used: rel.ink and cleanuri.
+Using the service, you can shorten a long link (snakes will not pass 🐍). Service API are used rel.ink.
 
 [Try It Out!](https://url-shortener.surge.sh/)
 
