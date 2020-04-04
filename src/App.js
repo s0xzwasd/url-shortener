@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
 
-  .success-toast {
+  .toast-custom {
     min-height: 40px;
     background-color: var(--c-secondary);
     border-radius: 2px;

@@ -3,21 +3,21 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import fetchInput from "../../redux/actions/fetchInput";
+import handleInput from "../../redux/actions/handleInput";
 
 const StyledInput = styled.input`
   font-family: inherit;
   font-size: var(--font-size-small);
   width: calc(80% - 100px);
-  color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text-on-white)")};
+  color: ${(props) => (props.isLoading ? "var(--c-loader)" : "var(--c-text-on-white)")};
   padding: 5px 15px;
   border: none;
   border-radius: 0;
-  background-color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
+  background-color: ${(props) => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
 `;
 
 class Input extends Component {
-  handleChange = e => {
+  handleChange = (e) => {
     const { fetchData } = this.props;
 
     fetchData(e.target.value);
@@ -41,10 +41,10 @@ Input.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   link: PropTypes.node.isRequired,
   isLinkShortened: PropTypes.bool.isRequired,
-  fetchData: PropTypes.func.isRequired
+  fetchData: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     value: state.handleValue.input,
     link: state.link.data,
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchData: fetchInput
+  fetchData: handleInput,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);
