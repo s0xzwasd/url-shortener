@@ -92,7 +92,7 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link
           ) : (
             <>
               <CopyToClipboard text={`${apiLink}${link.hashid}`}>
-                <Button onClick={() => toast.success("Copied!", { className: "success-toast" })}>Copy</Button>
+                <Button onClick={() => toast.success("Copied!", { className: "toast-custom" })}>Copy</Button>
               </CopyToClipboard>
               <StyledWrapper>
                 <Button onClick={() => hideLink()}>New</Button>
@@ -112,7 +112,11 @@ App.propTypes = {
   isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired,
   hideLink: PropTypes.func.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.exact({
+    hashid: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => {

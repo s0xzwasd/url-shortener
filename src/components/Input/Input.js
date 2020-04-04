@@ -39,7 +39,11 @@ class Input extends Component {
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  link: PropTypes.node.isRequired,
+  link: PropTypes.exact({
+    hashid: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string,
+  }).isRequired,
   isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired,
 };

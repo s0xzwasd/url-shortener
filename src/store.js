@@ -14,8 +14,8 @@ export default function configureStore() {
     saveState({
       app: store.getState().app,
       link: store.getState().link,
-      value: store.getState().value,
-      items: store.getState().items,
+      handleValue: store.getState().handleValue,
+      shortenedItems: store.getState().shortenedItems,
     });
   });
 
