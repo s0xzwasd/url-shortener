@@ -1,25 +1,27 @@
-import { SHOW_LOADER, HIDE_LOADER, SHOW_SHORT_LINK, HIDE_SHORT_LINK } from "../types";
+import { COLLECT_LINK, SHOW_LOADER, HIDE_LOADER, SHOW_SHORT_LINK, HIDE_SHORT_LINK } from "../types";
+
+export const collectLink = (link) => ({ type: COLLECT_LINK, payload: link });
 
 export const showLoader = () => {
   return {
-    type: SHOW_LOADER
+    type: SHOW_LOADER,
   };
 };
 
 export const hideLoader = () => {
   return {
-    type: HIDE_LOADER
+    type: HIDE_LOADER,
   };
 };
 
 export const showShortLink = () => {
   return {
-    type: SHOW_SHORT_LINK
+    type: SHOW_SHORT_LINK,
   };
 };
 
 export const hideShortLink = () => {
   return {
-    type: HIDE_SHORT_LINK
+    type: HIDE_SHORT_LINK,
   };
 };

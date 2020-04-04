@@ -1,8 +1,8 @@
-import { SHOW_LOADER, HIDE_LOADER, SHOW_SHORT_LINK, HIDE_SHORT_LINK } from "../types";
+import { HIDE_LOADER, HIDE_SHORT_LINK, SHOW_LOADER, SHOW_SHORT_LINK } from "../types";
 
 const initialState = {
   loading: false,
-  linkVisisble: false
+  linkShortened: false,
 };
 
 export default (state = initialState, action) => {
@@ -12,9 +12,9 @@ export default (state = initialState, action) => {
     case HIDE_LOADER:
       return { ...state, loading: false };
     case SHOW_SHORT_LINK:
-      return { ...state, linkVisisble: true };
+      return { ...state, linkShortened: true };
     case HIDE_SHORT_LINK:
-      return { ...state, linkVisisble: false };
+      return { ...state, linkShortened: false };
     default:
       return state;
   }

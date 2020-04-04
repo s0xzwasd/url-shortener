@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
 
-  .success-toast {
+  .toast-custom {
     min-height: 40px;
     background-color: var(--c-secondary);
     border-radius: 2px;
@@ -92,7 +92,7 @@ const App = ({ inputValue, isLoading, isLinkShortened, fetchData, hideLink, link
           ) : (
             <>
               <CopyToClipboard text={`${apiLink}${link.hashid}`}>
-                <Button onClick={() => toast.success("Copied!", { className: "success-toast" })}>Copy</Button>
+                <Button onClick={() => toast.success("Copied!", { className: "toast-custom" })}>Copy</Button>
               </CopyToClipboard>
               <StyledWrapper>
                 <Button onClick={() => hideLink()}>New</Button>
@@ -112,21 +112,25 @@ App.propTypes = {
   isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired,
   hideLink: PropTypes.func.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.exact({
+    hashid: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string,
+  }).isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     link: state.link.data,
-    inputValue: state.value.value,
+    inputValue: state.handleValue.input,
     isLoading: state.app.loading,
-    isLinkShortened: state.app.linkVisisble
+    isLinkShortened: state.app.linkShortened,
   };
 };
 
 const mapDispatchToProps = {
   fetchData: fetchLink,
-  hideLink: hideShortLink
+  hideLink: hideShortLink,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,21 +3,21 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import fetchInput from "../../redux/actions/fetchInput";
+import handleInput from "../../redux/actions/handleInput";
 
 const StyledInput = styled.input`
   font-family: inherit;
   font-size: var(--font-size-small);
   width: calc(80% - 100px);
-  color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text-on-white)")};
+  color: ${(props) => (props.isLoading ? "var(--c-loader)" : "var(--c-text-on-white)")};
   padding: 5px 15px;
   border: none;
   border-radius: 0;
-  background-color: ${props => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
+  background-color: ${(props) => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
 `;
 
 class Input extends Component {
-  handleChange = e => {
+  handleChange = (e) => {
     const { fetchData } = this.props;
 
     fetchData(e.target.value);
@@ -39,22 +39,26 @@ class Input extends Component {
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  link: PropTypes.node.isRequired,
+  link: PropTypes.exact({
+    hashid: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string,
+  }).isRequired,
   isLinkShortened: PropTypes.bool.isRequired,
-  fetchData: PropTypes.func.isRequired
+  fetchData: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    value: state.value.value,
+    value: state.handleValue.input,
     link: state.link.data,
     isLoading: state.app.loading,
-    isLinkShortened: state.app.linkVisisble
+    isLinkShortened: state.app.linkShortened,
   };
 };
 
 const mapDispatchToProps = {
-  fetchData: fetchInput
+  fetchData: handleInput,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

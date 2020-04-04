@@ -18,7 +18,7 @@ const HeaderTitle = ({ children }) => {
 };
 
 HeaderTitle.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default HeaderTitle;
