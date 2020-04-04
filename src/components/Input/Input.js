@@ -14,6 +14,11 @@ const StyledInput = styled.input`
   border: none;
   border-radius: 0;
   background-color: ${(props) => (props.isLoading ? "var(--c-loader)" : "var(--c-text)")};
+
+  @media (max-width: 570px) {
+    width: 90%;
+    margin-bottom: 10px;
+  }
 `;
 
 class Input extends Component {

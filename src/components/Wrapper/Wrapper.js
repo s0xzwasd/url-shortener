@@ -7,6 +7,10 @@ const StyledWrapper = styled.section`
   padding: 15px 10px;
   background-color: var(--c-primary);
   border-radius: 5px;
+
+  @media (max-width: 570px) {
+    min-width: auto;
+  }
 `;
 
 const Wrapper = ({ children }) => {

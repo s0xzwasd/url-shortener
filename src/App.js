@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    min-width: 320px;
+    min-width: 350px;
     margin: 0;
     font-family: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
   }
@@ -47,8 +47,9 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-top: 50px;
+  justify-content: flex-start;
+  font-size: 14px;
   color: white;
   text-align: center;
 
