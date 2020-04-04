@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "branchPrefix": "deps/",
+  "commitBody": "[skip ci]",
+  "bumpVersion": "major",
+  "automerge": true,
+  "labels": [
+    "dependencies"
+  ],
+  "schedule": "every weekend",
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ]
+  }
+}
