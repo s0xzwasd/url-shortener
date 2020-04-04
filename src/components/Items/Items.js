@@ -7,6 +7,13 @@ import { v4 as uuidv4 } from "uuid";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
+const StyledSection = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const StyledItems = styled.a`
   display: inline-block;
   margin: 10px 0;
@@ -21,7 +28,7 @@ const Items = ({ items }) => {
     </CopyToClipboard>
   ));
 
-  return <section>{listItems}</section>;
+  return <StyledSection>{listItems}</StyledSection>;
 };
 
 Items.propTypes = {
