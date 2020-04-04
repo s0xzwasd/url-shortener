@@ -33,8 +33,8 @@ Button.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    value: state.value.value,
-    isLoading: state.app.loading
+    value: state.handleValue.input,
+    isLoading: state.app.loading,
   };
 };
 

@@ -46,10 +46,10 @@ Input.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    value: state.value.value,
+    value: state.handleValue.input,
     link: state.link.data,
     isLoading: state.app.loading,
-    isLinkShortened: state.app.linkVisisble
+    isLinkShortened: state.app.linkShortened,
   };
 };
 

@@ -1,15 +1,15 @@
-import { FETCH_INPUT } from "../types";
+import { HANDLE_INPUT } from "../types";
 
 const initialState = {
-  value: ""
+  input: ""
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_INPUT:
+    case HANDLE_INPUT:
       return {
         ...state,
-        value: action.payload
+        input: action.payload
       };
     default:
       return state;

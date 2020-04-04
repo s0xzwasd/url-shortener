@@ -28,7 +28,7 @@ Items.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    items: state.items.links
+    items: state.shortenedItems.links,
   };
 };
 

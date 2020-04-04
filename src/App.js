@@ -112,21 +112,21 @@ App.propTypes = {
   isLinkShortened: PropTypes.bool.isRequired,
   fetchData: PropTypes.func.isRequired,
   hideLink: PropTypes.func.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     link: state.link.data,
-    inputValue: state.value.value,
+    inputValue: state.handleValue.input,
     isLoading: state.app.loading,
-    isLinkShortened: state.app.linkVisisble
+    isLinkShortened: state.app.linkShortened,
   };
 };
 
 const mapDispatchToProps = {
   fetchData: fetchLink,
-  hideLink: hideShortLink
+  hideLink: hideShortLink,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

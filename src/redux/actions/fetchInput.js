@@ -1,5 +1,5 @@
-import { FETCH_INPUT } from "../types";
+import { HANDLE_INPUT } from "../types";
 
-const fetchInput = (value) => ({ type: FETCH_INPUT, payload: value });
+const fetchInput = (value) => ({ type: HANDLE_INPUT, payload: value });
 
 export default fetchInput;
