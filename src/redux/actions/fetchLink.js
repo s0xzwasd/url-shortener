@@ -10,11 +10,17 @@ const apiBase = "https://rel.ink/";
 export default function fetchLink(url) {
   return async (dispatch) => {
     // TODO: add regular exp to match link without http protocol
-    const currentUrl = url;
+    let currentUrl = url;
+    const protocolPrefix = "https://";
     const matchUrlRegExp = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,})/g;
+    const mathUrlWithoutProtocol = /^[a-zA-Z]+:\/\//;
 
     if (currentUrl === "") {
       return toast.warn("Enter a value for the job.", { className: "toast-custom" });
+    }
+
+    if (!currentUrl.match(mathUrlWithoutProtocol)) {
+      currentUrl = `${protocolPrefix}${currentUrl}`;
     }
 
     if (!currentUrl.match(matchUrlRegExp)) {
