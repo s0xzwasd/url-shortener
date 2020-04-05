@@ -34,10 +34,19 @@ class Input extends Component {
     const apiLink = "https://rel.ink/";
 
     if (link && isLinkShortened) {
-      return <StyledInput isLoading={isLoading} autoFocus value={`${apiLink}${link.hashid}`} readOnly />;
+      return <StyledInput isLoading={isLoading} autoFocus value={`${apiLink}${link.hashid}`} type='url' readOnly />;
     }
 
-    return <StyledInput isLoading={isLoading} autoFocus value={value} onChange={this.handleChange} />;
+    return (
+      <StyledInput
+        placeholder='Past the link here for magic...'
+        isLoading={isLoading}
+        autoFocus
+        value={value}
+        onChange={this.handleChange}
+        type='url'
+      />
+    );
   }
 }
 
