@@ -4,12 +4,11 @@ import { FETCH_LINK } from "../types";
 import { collectLink, showLoader, hideLoader, showShortLink } from "./app";
 import handleInput from "./handleInput";
 
-const apiUrl = "https://rel.ink/api/links/";
 const apiBase = "https://rel.ink/";
+const apiUrl = `${apiBase}api/links/`;
 
 export default function fetchLink(url) {
   return async (dispatch) => {
-    // TODO: add regular exp to match link without http protocol
     let currentUrl = url;
     const protocolPrefix = "https://";
     const matchUrlRegExp = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,})/g;
