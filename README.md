@@ -18,7 +18,7 @@ Using the service, you can shorten a long link (snakes will not pass 🐍). Serv
 ### Additional functionality
 
 - [x] User sees a successful notification of the creation and copying of the link.
-- [x] User sees the last 10 links created (localStorage).
+- [x] User sees the last 5 links created (localStorage).
 
 ### Used technologies and libraries
 
