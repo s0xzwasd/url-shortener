@@ -12,6 +12,7 @@ const StyledSection = styled.section`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
 `;
 
 const StyledItems = styled.a`
