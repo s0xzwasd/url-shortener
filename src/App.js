@@ -11,8 +11,8 @@ import Input from "./components/Input";
 import Wrapper from "./components/Wrapper";
 import Items from "./components/Items";
 
-import fetchLink from "./redux/actions/fetchLink";
-import { hideShortLink } from "./redux/actions/app";
+import fetchLink from "./store/actions/fetchLink";
+import { hideShortLink } from "./store/actions/app";
 
 const GlobalStyle = createGlobalStyle`
   :root {
