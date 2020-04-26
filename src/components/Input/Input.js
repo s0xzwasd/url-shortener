@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import handleInput from "../../redux/actions/handleInput";
+import handleInput from "../../store/actions/handleInput";
 
 const StyledInput = styled.input`
   font-family: inherit;
