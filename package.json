@@ -1,6 +1,6 @@
 {
   "name": "url-shortener",
-  "version": "30.0.0",
+  "version": "31.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "5.11.4",
@@ -15,7 +15,7 @@
     "react-toastify": "6.0.8",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
-    "styled-components": "5.1.1",
+    "styled-components": "5.2.0",
     "uuid": "8.3.0"
   },
   "scripts": {
