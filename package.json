@@ -1,15 +1,15 @@
 {
   "name": "url-shortener",
-  "version": "36.0.0",
+  "version": "37.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.0.4",
     "@testing-library/user-event": "12.1.7",
     "prop-types": "15.7.2",
-    "react": "16.13.1",
+    "react": "16.14.0",
     "react-copy-to-clipboard": "5.0.2",
-    "react-dom": "16.13.1",
+    "react-dom": "16.14.0",
     "react-redux": "7.2.1",
     "react-scripts": "3.4.3",
     "react-toastify": "6.0.9",
